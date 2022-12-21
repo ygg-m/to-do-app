@@ -108,7 +108,7 @@ function saveList() {
 
 function loadList() {
   checkState = JSON.parse(localStorage.getItem("checkState"));
-  if (!checkState === null) checkState = {};
+  if (checkState === null) checkState = {};
 }
 
 // executes when the page load
