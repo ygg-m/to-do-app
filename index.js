@@ -25,7 +25,7 @@ function createCheckbox(todo, item) {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.checked = checkState[todo] || false; // Set the check state
-
+  if (checkbox.checked) item.classList.toggle("completed");
   checkbox.addEventListener("change", function () {
     checkState[todo] = this.checked; // Update the check state in the object
     saveList();
