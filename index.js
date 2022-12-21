@@ -6,6 +6,6 @@ addButton.addEventListener("click", () => {
   const todo = input.value;
   input.value = "";
   const item = document.createElement("div");
-  itme.innerHTML = todo;
+  item.innerHTML = todo;
   list.appendChild(item);
 });
