@@ -5,8 +5,9 @@ const list = document.getElementById("todo-list");
 function createCheckbox(item) {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.addEventListener("click", () => {
+  item.addEventListener("click", () => {
     item.classList.toggle("completed");
+    checkbox.checked = !checkbox.checked;
   });
   item.appendChild(checkbox);
 }
@@ -18,15 +19,25 @@ function clearTextInput() {
 function createTodo(todo) {
   item = document.createElement("div");
   createCheckbox(item);
+  item.classList.add("todo");
   item.appendChild(document.createTextNode(todo));
   return item;
 }
 
-addButton.addEventListener("click", () => {
+function addToList() {
   const todo = input.value;
-
   if (todo !== "") {
     clearTextInput();
     list.appendChild(createTodo(todo));
   }
+}
+
+input.addEventListener("keydown", (event) => {
+  if (event.ctrlKey && event.keyCode === 13) {
+    addToList();
+  }
+});
+
+addButton.addEventListener("click", () => {
+  addToList();
 });
