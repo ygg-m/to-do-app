@@ -65,7 +65,7 @@ textarea:focus {
 }
 
 #clear-list:hover {
-  background-color: #dc0000;
+  background-color: #ec8f8f;
   outline: 1px solid #850000;
-  color: #fff;
+  color: #850000;
 }
