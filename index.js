@@ -1,17 +1,7 @@
 const input = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
+const clearButton = document.getElementById("clear-list");
 const list = document.getElementById("todo-list");
-
-// create checkbox item to use in each to-do item
-function createCheckbox(item) {
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  item.addEventListener("click", () => {
-    item.classList.toggle("completed");
-    checkbox.checked = !checkbox.checked;
-  });
-  item.appendChild(checkbox);
-}
 
 // clear input text in textbox
 function clearTextInput() {
@@ -25,6 +15,17 @@ function createTodo(todo) {
   item.classList.add("todo");
   item.appendChild(document.createTextNode(todo));
   return item;
+}
+
+// create checkbox item to use in each to-do item
+function createCheckbox(item) {
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  item.addEventListener("click", () => {
+    item.classList.toggle("completed");
+    checkbox.checked = !checkbox.checked;
+  });
+  item.appendChild(checkbox);
 }
 
 // add to-do item to list
@@ -47,3 +48,20 @@ input.addEventListener("keydown", (event) => {
 addButton.addEventListener("click", () => {
   addToList();
 });
+
+// event listener to "clear list" button
+clearButton.addEventListener("click", () => {
+  if (confirm("Are you sure you want to clear the list?")) {
+    // user clicked "OK"
+    clearList();
+  } else {
+    // use clicker "Cancel"
+  }
+});
+
+// clear list
+function clearList() {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
