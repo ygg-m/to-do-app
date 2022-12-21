@@ -56,7 +56,7 @@ clearButton.addEventListener("click", () => {
       // user clicked "OK"
       clearList();
     } else {
-      // use clicker "Cancel"
+      // user clicked "Cancel"
     }
   }
 });
