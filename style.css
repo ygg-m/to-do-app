@@ -53,11 +53,24 @@ textarea:focus {
   padding: 0.5rem;
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 }
 
 #todo-list > .todo:hover {
   user-select: none;
   background-color: #ccc;
+}
+
+#todo-list > .todo.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+input[type="checkbox"] {
+  background-color: red;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
 }
 
 #clear-list {
