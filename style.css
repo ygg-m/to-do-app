@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  border: none;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #222;
+  background-color: #f3efe0;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 1rem;
+  color: #434242;
+}
+
+.add-area {
+  padding: 1rem;
+  width: 100vw;
+  display: flex;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.3rem 2rem;
+  outline: 1px solid #434242;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #ccc;
+  background-color: #434242;
+}
+
+textarea {
+  padding: 0.5rem;
+  min-height: 34px;
+  outline: 1px solid #434242;
+}
+
+textarea:focus {
+  background-color: #ccc;
+}
+
+#todo-list {
+  padding: 1rem;
+  display: grid;
+}
+
+#todo-list > .todo {
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#todo-list > .todo:hover {
+  user-select: none;
+  background-color: #ccc;
+}
