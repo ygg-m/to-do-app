@@ -3,7 +3,8 @@ const addButton = document.getElementById("add-button");
 const clearButton = document.getElementById("clear-list");
 const list = document.getElementById("todo-list");
 const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
-let checkState = {};
+let checkState =
+  (checkState = JSON.parse(localStorage.getItem("checkState"))) || {};
 
 // clear input text in textbox
 function clearTextInput() {
