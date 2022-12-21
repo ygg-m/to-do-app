@@ -2,8 +2,8 @@ const input = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 const clearButton = document.getElementById("clear-list");
 const list = document.getElementById("todo-list");
-const todoList = [];
-const checkState = {};
+const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+let checkState = {};
 
 // clear input text in textbox
 function clearTextInput() {
@@ -28,6 +28,7 @@ function createCheckbox(todo, item) {
 
   checkbox.addEventListener("change", function () {
     checkState[todo] = this.checked; // Update the check state in the object
+    saveList();
   });
 
   // add click to item
@@ -35,6 +36,7 @@ function createCheckbox(todo, item) {
     item.classList.toggle("completed");
     checkbox.checked = !checkbox.checked;
     checkState[todo] = checkbox.checked;
+    saveList();
   });
 
   return checkbox;
@@ -57,6 +59,7 @@ function updateList() {
   for (const todo of todoList) {
     list.appendChild(createTodo(todo));
   }
+  saveList();
 }
 
 // event listener to ctrl+enter command
@@ -97,11 +100,20 @@ function clearTodoList() {
 // save list to localStorage
 function saveList() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
+  localStorage.setItem("checkState", JSON.stringify(checkState));
 }
 
-function loadList() {}
+function loadList() {
+  checkState = JSON.parse(localStorage.getItem("checkState"));
+  if (!checkState === null) checkState = {};
+}
 
 // executes when the page load
 window.addEventListener("load", () => {
+  loadList();
   updateList();
+});
+
+window.addEventListener("beforeunload", () => {
+  saveList();
 });
