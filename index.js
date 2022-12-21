@@ -51,11 +51,13 @@ addButton.addEventListener("click", () => {
 
 // event listener to "clear list" button
 clearButton.addEventListener("click", () => {
-  if (confirm("Are you sure you want to clear the list?")) {
-    // user clicked "OK"
-    clearList();
-  } else {
-    // use clicker "Cancel"
+  if (list.firstChild !== null) {
+    if (confirm("Are you sure you want to clear the list?")) {
+      // user clicked "OK"
+      clearList();
+    } else {
+      // use clicker "Cancel"
+    }
   }
 });
 
