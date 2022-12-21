@@ -2,7 +2,7 @@ const input = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 const clearButton = document.getElementById("clear-list");
 const list = document.getElementById("todo-list");
-const todoList = ["item 1", "item2", "item3"];
+const todoList = [];
 const checkState = {};
 
 // clear input text in textbox
@@ -93,6 +93,13 @@ function clearList() {
 function clearTodoList() {
   todoList.length = 0;
 }
+
+// save list to localStorage
+function saveList() {
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
+function loadList() {}
 
 // executes when the page load
 window.addEventListener("load", () => {
