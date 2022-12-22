@@ -50,10 +50,12 @@ textarea:focus {
 
 #todo-list > .todo {
   cursor: pointer;
-  padding: 0.5rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1rem 1fr 80px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 0px;
 }
 
 #todo-list > .todo:hover {
@@ -78,6 +80,26 @@ input[type="checkbox"] {
 }
 
 #clear-list:hover {
+  background-color: #ec8f8f;
+  outline: 1px solid #850000;
+  color: #850000;
+}
+
+.delete-todo {
+  opacity: 0.2;
+  font-size: 0.75rem;
+  padding: 0 1rem;
+  background-color: transparent;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.todo:hover > .delete-todo {
+  opacity: 1;
+}
+
+.todo > .delete-todo:hover {
   background-color: #ec8f8f;
   outline: 1px solid #850000;
   color: #850000;

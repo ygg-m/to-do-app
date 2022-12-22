@@ -17,6 +17,7 @@ function createTodo(todo) {
 
   item.appendChild(createCheckbox(todo, item));
   item.appendChild(document.createTextNode(todo));
+  item.appendChild(createDeleteButton(todo, item));
   return item;
 }
 
@@ -43,6 +44,21 @@ function createCheckbox(todo, item) {
   });
 
   return checkbox;
+}
+
+// create delete button
+function createDeleteButton(todo, item) {
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-todo");
+  deleteButton.innerText = "Delete";
+
+  deleteButton.addEventListener("click", () => {
+    let index = todoList.indexOf(todo);
+    todoList.splice(index, 1);
+    updateList();
+  });
+
+  return deleteButton;
 }
 
 // add to-do item to list
