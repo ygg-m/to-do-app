@@ -1,0 +1,3 @@
+[submodule "ygg-badge"]
+    path = ygg-badge
+    url = https://github.com/ygg-m/ygg-badge.git
